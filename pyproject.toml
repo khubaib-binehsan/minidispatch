@@ -1,0 +1,23 @@
+[project]
+name = "minidispatch"
+version = "0.1.0"
+description = "A minimalistic orchestration library."
+readme = "README.md"
+authors = [
+    { name = "Khubaib Bin Ehsan", email = "khubaib@khubaibeh.com" }
+]
+requires-python = ">=3.13"
+dependencies = []
+
+[build-system]
+requires = ["uv_build>=0.9.1,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.19.1",
+]
+
+[tool.mypy]
+disallow_untyped_defs = true
+check_untyped_defs = true
