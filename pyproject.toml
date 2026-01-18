@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
+    "croniter>=6.0.0",
     "rich>=14.2.0",
     "typer>=0.21.1",
 ]
@@ -22,8 +23,13 @@ build-backend = "uv_build"
 [dependency-groups]
 dev = [
     "mypy>=1.19.1",
+    "pytest>=9.0.2",
+    "types-croniter>=6.0.0.20250809",
 ]
 
 [tool.mypy]
 disallow_untyped_defs = true
 check_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
