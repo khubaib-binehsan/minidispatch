@@ -27,24 +27,16 @@ console = Console()
 
 def jobs(
     jobs_list: Optional[bool] = typer.Option(
-        None,
-        "--list",
-        help="List jobs (deprecated: listing is the default now)",
+        None, "--list", help="List jobs names only"
     ),
     success: bool = typer.Option(
-        False,
-        "--success",
-        help="Show jobs whose last run succeeded",
+        False, "--success", help="Show jobs whose last run succeeded"
     ),
     failure: bool = typer.Option(
-        False,
-        "--failure",
-        help="Show jobs whose last run failed",
+        False, "--failure", help="Show jobs whose last run failed"
     ),
     num: int = typer.Option(
-        10,
-        "-n",
-        help="Number of items to show (10 = first 10, -10 = last 10)",
+        10, "-n", help="Number of items to show (10 = first 10, -10 = last 10)"
     ),
 ) -> None:
     "List jobs with minimal details."
