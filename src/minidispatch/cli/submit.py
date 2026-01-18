@@ -8,6 +8,7 @@ from rich.table import Table
 
 from minidispatch.core import daemon as daemon_core
 from minidispatch.core.constants import ENVS_DIR
+from minidispatch.db import jobnames
 from minidispatch.db import manager as db_manager
 
 console = Console()
@@ -18,7 +19,7 @@ def submit(
     command: str = typer.Argument(..., help="Command to run"),
     name: Optional[str] = typer.Option(None, "--name", help="Job name"),
     timeout: Optional[int] = typer.Option(
-        None, "--timeout", help="Job timeout in seconds"
+        600, "--timeout", help="Job timeout in seconds"
     ),
 ) -> None:
     "Submit a new job."
@@ -32,7 +33,7 @@ def submit(
     job_id = job_hash
 
     if not name:
-        name = f"job-{job_id}"
+        name = jobnames.generate_name()
 
     # Start daemon if not running
     if not daemon_core.is_running():
